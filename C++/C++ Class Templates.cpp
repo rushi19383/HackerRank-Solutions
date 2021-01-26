@@ -5,46 +5,38 @@
 #include <algorithm>
 #include <cassert>
 using namespace std;
-struct Optimizer{
-    Optimizer(){
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-    }
-};
-Optimizer opt;
-/*Write the class AddElements here*/
+template <class T>
+class AddElements
+{
+    private:
+        T element1;
 
-template<class T>
-class AddElements {
-    private:
-    T a;
     public:
-        AddElements(T& b){
-            a=b;
-            
+        AddElements(T a)
+        {
+            element1 = a;
         }
-        const T& add(T& n){
-            a+=n;
-            return a;
+
+        T add(T b)
+        {
+            return element1 + b;
         }
-        ~AddElements(){}
+
+        string concatenate(T b)
+        {
+            return element1.append(b);
+        }
 };
-template <>
-class AddElements<string>{
-    private:
-        string a;
-    public:
-    AddElements(string& b){
-        a=b;
-        
-    }
-    const string& concatenate(string& s){
-        a.append(s);
-        return a;
-        
-    }
-    ~AddElements(){}
-};
+
+int start_up() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    return 0;
+}
+
+int static r = start_up();
+
+#define endl '\n';
 int main () {
   int n,i;
   cin >> n;
